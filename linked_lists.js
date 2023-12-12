@@ -48,7 +48,29 @@ class LinkedList{
 
     
     //insert at index
-    
+    insertAt(data, index){
+        //if index is out of range
+        if(index>0 && index > this.size){
+            console.log("the index is out of range");
+            return;
+        }else if( index === 0){
+            // if inserting to the head
+            insertFirst(data);
+            return;
+        }
+        const node = new Node(data);
+        let current, previous, count = 0;
+        current = this.head;
+        while(count < index){
+            previous = current;
+            count++;
+            current = current.next;
+        }
+        node.next = current;
+        previous.next = node;
+        this.size++;
+        
+    }    
     //remove at index
 
     //clear
@@ -69,4 +91,5 @@ ll.insertFirst(100);
 ll.insertFirst(300);
 ll.insertFirst(340);
 ll.insertLast(400); 
+ll.insertAt(1000, 2);
 ll.printListData();
