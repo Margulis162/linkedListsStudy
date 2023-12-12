@@ -55,7 +55,8 @@ class LinkedList{
             return;
         }else if( index === 0){
             // if inserting to the head
-            insertFirst(data);
+            this.head = new Node(data, this.head);
+            this.size++;
             return;
         }
         const node = new Node(data);
@@ -91,5 +92,5 @@ ll.insertFirst(100);
 ll.insertFirst(300);
 ll.insertFirst(340);
 ll.insertLast(400); 
-ll.insertAt(1000, 2);
+ll.insertAt(1000, 10);
 ll.printListData();
